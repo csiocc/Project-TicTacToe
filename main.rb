@@ -8,7 +8,7 @@ displ_arr = [
   ["C", "", "", ""]
 ]
 
-table = TTY::Table.new(displ_arr) #playfield displ_arr
+table = TTY::Table.new(displ_arr) #playfield Display
 
 puts table.render(:unicode, width: 20, resize: true, alignment: [:center]) { |renderer|
   renderer.border.separator = :each_row}
@@ -116,7 +116,7 @@ while playing do
 
   displ_arr2 = player_turn(displ_arr) #player turn
   
-  table2 = TTY::Table.new(displ_arr2)    #displ_arr updated result player
+  table2 = TTY::Table.new(displ_arr2)    #Display updated result player
   puts table2.render(:unicode, width: 20, resize: true, alignment: [:center]) { |renderer|
     renderer.border.separator = :each_row}
 
@@ -128,7 +128,7 @@ while playing do
 
   displ_arr2 = ki_logic(displ_arr2) #Ki turn
   
-  table2 = TTY::Table.new(displ_arr2 )#displ_arr updated result
+  table2 = TTY::Table.new(displ_arr2 )#Display updated result
   puts table2.render(:unicode, width: 20, resize: true, alignment: [:center]) { |renderer|
     renderer.border.separator = :each_row}
   
