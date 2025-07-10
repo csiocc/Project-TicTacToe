@@ -42,6 +42,12 @@ def ki_win?(displ_arr)#Ki win conditions
   displ_arr[3][1] == "O" && displ_arr[2][2] == "O" && displ_arr[1][3] == "O"    #diagonal win
 end
 
+def draw?(displ_arr)#Draw conditions
+  displ_arr[1][1] != "" && displ_arr[1][2] != "" && displ_arr[1][3] != "" &&
+  displ_arr[2][1] != "" && displ_arr[2][2] != "" && displ_arr[2][3] != "" &&
+  displ_arr[3][1] != "" && displ_arr[3][2] != "" && displ_arr[3][3] != ""
+end
+
 while playing do
 
     def ki_logic(displ_arr2)
@@ -126,6 +132,11 @@ while playing do
     break
   end
 
+  if draw?(displ_arr2)
+    puts "Draw! Try again"
+    break
+  end
+
   displ_arr2 = ki_logic(displ_arr2) #Ki turn
   
   table2 = TTY::Table.new(displ_arr2 )#Display updated result
@@ -135,6 +146,11 @@ while playing do
 
   if ki_win?(displ_arr2)
     puts "You lose!"
+    break
+  end
+
+  if draw?(displ_arr2)
+    puts "Draw! Try again"
     break
   end
 
